@@ -18,7 +18,7 @@ Aplikasi Web Berbagi Dokumen memfasilitasi pertukaran file secara terkontrol ant
 
 Anda dapat meninjau diagram DFD dan daftar analisis ancaman STRIDE pada repositori ini melalui salah satu metode berikut:
 
-### Opsi 1: Menggunakan OWASP Threat Dragon Web (Direkomendasikan)
+### Menggunakan OWASP Threat Dragon Web 🐉
 1. Buka aplikasi web **OWASP Threat Dragon** (versi daring atau *instance* lokal yang berjalan di perangkat Anda).
 2. Pilih metode masuk menggunakan akun **GitHub** dan berikan otorisasi akses repositori.
 3. Pilih akun/organisasi pemilik repositori ini, lalu pilih nama repositori beserta cabang (*branch*) utama (`main`).
