@@ -34,7 +34,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Boundary",
-              "name": "Public - Backend",
+              "name": "Backend - Storage",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
@@ -42,91 +42,28 @@
               "containedElements": []
             },
             "labels": [
-              "Public - Backend"
-            ],
-            "id": "d8e1f5ed-a77b-4f45-ba38-6917de3a5b6c",
-            "source": {
-              "x": 1020,
-              "y": 70
-            },
-            "target": {
-              "x": 1020,
-              "y": 470
-            },
-            "vertices": [
-              {
-                "x": 1020,
-                "y": 390
-              }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": -1,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "Trust Boundary",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
-            },
-            "labels": [
-              "Trust Boundary"
+              "Backend - Storage"
             ],
             "id": "14ea86fe-207b-4aad-a29c-f2001ed3fa12",
             "source": {
-              "x": 1260,
-              "y": 120
+              "x": 1360,
+              "y": 70
             },
             "target": {
               "x": 1360,
-              "y": 220
-            }
+              "y": 460
+            },
+            "vertices": [
+              {
+                "x": 1360,
+                "y": 180
+              }
+            ]
           },
           {
             "position": {
-              "x": 1350,
-              "y": 154
+              "x": 1120,
+              "y": 214
             },
             "size": {
               "width": 190,
@@ -144,6 +81,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -227,7 +165,6 @@
               ]
             },
             "id": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
-            "zIndex": 1,
             "data": {
               "type": "tm.Process",
               "name": "Backend API",
@@ -245,8 +182,8 @@
           },
           {
             "position": {
-              "x": 800,
-              "y": 94
+              "x": 640,
+              "y": 40
             },
             "size": {
               "width": 112.5,
@@ -264,6 +201,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -347,7 +285,6 @@
               ]
             },
             "id": "e96abe9d-3c29-42fe-8de8-81b8ab837295",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "Pemilik\nDokumen",
@@ -362,8 +299,8 @@
           },
           {
             "position": {
-              "x": 1430,
-              "y": 94
+              "x": 1470,
+              "y": 154
             },
             "size": {
               "width": 120,
@@ -384,6 +321,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -467,7 +405,6 @@
               ]
             },
             "id": "9755cad5-8653-4389-9174-430985fbca76",
-            "zIndex": 3,
             "data": {
               "type": "tm.Store",
               "name": "Database\nMetadata",
@@ -486,8 +423,8 @@
           },
           {
             "position": {
-              "x": 1440,
-              "y": 380
+              "x": 1480,
+              "y": 304
             },
             "size": {
               "width": 120,
@@ -508,6 +445,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -591,7 +529,6 @@
               ]
             },
             "id": "59cd2bdb-36ef-4983-be56-9ea53ca5503f",
-            "zIndex": 4,
             "data": {
               "type": "tm.Store",
               "name": "Object\nStorage",
@@ -610,8 +547,8 @@
           },
           {
             "position": {
-              "x": 800,
-              "y": 244
+              "x": 640,
+              "y": 254
             },
             "size": {
               "width": 112.5,
@@ -629,6 +566,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -712,7 +650,6 @@
               ]
             },
             "id": "545dc8cd-c91b-494b-b387-00f7f6ded5b3",
-            "zIndex": 5,
             "data": {
               "type": "tm.Actor",
               "name": "Penerima\nEksternal",
@@ -727,8 +664,8 @@
           },
           {
             "position": {
-              "x": 800,
-              "y": 380
+              "x": 630,
+              "y": 610
             },
             "size": {
               "width": 112.5,
@@ -746,6 +683,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 6,
             "ports": {
               "groups": {
                 "top": {
@@ -829,7 +767,6 @@
               ]
             },
             "id": "a2d4f938-2adb-401c-bdbd-e8dd035eebab",
-            "zIndex": 6,
             "data": {
               "type": "tm.Actor",
               "name": "Admin\nOrganisasi",
@@ -841,6 +778,207 @@
               "providesAuthentication": false,
               "threats": []
             }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Unggah File",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Unggah File"
+            ],
+            "id": "6a8e7d1b-59e5-46ef-838e-a88044bdc9d3",
+            "source": {
+              "cell": "e96abe9d-3c29-42fe-8de8-81b8ab837295",
+              "port": "26b74c4c-9412-49c1-8502-f0ac8de98d4b"
+            },
+            "target": {
+              "cell": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
+              "port": "8e90ddbf-3d0b-42a5-873e-e283bf3a9057"
+            },
+            "vertices": [
+              {
+                "x": 910,
+                "y": 40
+              },
+              {
+                "x": 1030,
+                "y": 40
+              },
+              {
+                "x": 1130,
+                "y": 90
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "URL tautan berbagi (24 jam)\n& daftar tautan aktif",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "URL tautan berbagi (24 jam)\n& daftar tautan aktif"
+            ],
+            "id": "48cbb9b6-cd41-4e9e-b53d-047998f075f9",
+            "source": {
+              "cell": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
+              "port": "8e90ddbf-3d0b-42a5-873e-e283bf3a9057"
+            },
+            "target": {
+              "cell": "e96abe9d-3c29-42fe-8de8-81b8ab837295",
+              "port": "26b74c4c-9412-49c1-8502-f0ac8de98d4b"
+            },
+            "vertices": [
+              {
+                "x": 980,
+                "y": 140
+              },
+              {
+                "x": 890,
+                "y": 110
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Permintaan akses tautan\nberbagi (tanpa login)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Permintaan akses tautan\nberbagi (tanpa login)"
+            ],
+            "id": "07b072a3-2242-4d5a-abab-e7d698c1eef6",
+            "source": {
+              "cell": "545dc8cd-c91b-494b-b387-00f7f6ded5b3",
+              "port": "26b74c4c-9412-49c1-8502-f0ac8de98d4b"
+            },
+            "target": {
+              "cell": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
+              "port": "0fc9a183-d839-444e-95a0-057ceaa850bc"
+            },
+            "vertices": [
+              {
+                "x": 830,
+                "y": 240
+              },
+              {
+                "x": 1010,
+                "y": 220
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 11,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Public - Backend",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Public - Backend"
+            ],
+            "id": "d8e1f5ed-a77b-4f45-ba38-6917de3a5b6c",
+            "source": {
+              "x": 1720,
+              "y": -120
+            },
+            "target": {
+              "x": 1720,
+              "y": 280
+            },
+            "vertices": []
           }
         ],
         "description": "Diagram Aliran Data (DFD) ini memodelkan arsitektur dan alur pertukaran data pada Aplikasi Web Berbagi Dokumen menggunakan metodologi STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege)."
