@@ -1230,6 +1230,58 @@
                 "y": -220
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Simpan konten file",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Simpan konten file"
+            ],
+            "id": "9037d2e2-d5b7-49ae-9158-f81ba09ef5b6",
+            "source": {
+              "x": 840,
+              "y": -170
+            },
+            "target": {
+              "cell": "59cd2bdb-36ef-4983-be56-9ea53ca5503f",
+              "port": "2e949974-208c-411c-8745-027230cc3a69"
+            },
+            "vertices": [
+              {
+                "x": 980,
+                "y": 0
+              }
+            ]
           }
         ],
         "description": "Diagram Aliran Data (DFD) ini memodelkan arsitektur dan alur pertukaran data pada Aplikasi Web Berbagi Dokumen menggunakan metodologi STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege)."
