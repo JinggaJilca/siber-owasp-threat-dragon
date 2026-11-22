@@ -1282,6 +1282,58 @@
                 "y": 0
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Mengambil konten\nfile",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Mengambil konten\nfile"
+            ],
+            "id": "62ab5908-0db8-47fd-ab95-270e3c5e7e3a",
+            "source": {
+              "cell": "59cd2bdb-36ef-4983-be56-9ea53ca5503f",
+              "port": "2e949974-208c-411c-8745-027230cc3a69"
+            },
+            "target": {
+              "cell": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
+              "port": "86927478-88f6-4077-aab0-c2877de58bdd"
+            },
+            "vertices": [
+              {
+                "x": 900,
+                "y": 40
+              }
+            ]
           }
         ],
         "description": "Diagram Aliran Data (DFD) ini memodelkan arsitektur dan alur pertukaran data pada Aplikasi Web Berbagi Dokumen menggunakan metodologi STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege)."
