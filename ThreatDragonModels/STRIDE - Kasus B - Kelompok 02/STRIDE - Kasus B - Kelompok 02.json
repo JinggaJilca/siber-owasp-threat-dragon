@@ -1303,7 +1303,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Mengambil konten\nfile",
+              "name": "Mengambil file",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -1317,7 +1317,7 @@
               "trustBoundaryIds": []
             },
             "labels": [
-              "Mengambil konten\nfile"
+              "Mengambil file"
             ],
             "id": "62ab5908-0db8-47fd-ab95-270e3c5e7e3a",
             "source": {
@@ -1331,7 +1331,7 @@
             "vertices": [
               {
                 "x": 900,
-                "y": 40
+                "y": 60
               }
             ]
           }
