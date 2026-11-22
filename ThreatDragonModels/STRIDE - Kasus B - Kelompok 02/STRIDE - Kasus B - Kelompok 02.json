@@ -935,58 +935,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "68639b88-25cd-4c32-a0aa-90bbb2764ca6",
-            "source": {
-              "x": 840,
-              "y": 314
-            },
-            "target": {
-              "x": 940,
-              "y": 414
-            },
-            "vertices": [
-              {
-                "x": 890,
-                "y": 370
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Halaman opsi unduh file",
               "description": "",
               "outOfScope": false,
@@ -1120,6 +1068,62 @@
               {
                 "x": 640,
                 "y": 50
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Tampilan metadata & log audit",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Tampilan metadata & log audit"
+            ],
+            "id": "6503ca7c-3b90-4c42-a3ee-9a9639a27113",
+            "source": {
+              "cell": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
+              "port": "0a55db55-f3a0-48cb-918f-7fe79e15c6eb"
+            },
+            "target": {
+              "cell": "a2d4f938-2adb-401c-bdbd-e8dd035eebab",
+              "port": "26b74c4c-9412-49c1-8502-f0ac8de98d4b"
+            },
+            "vertices": [
+              {
+                "x": 760,
+                "y": 60
+              },
+              {
+                "x": 660,
+                "y": 160
               }
             ]
           }
