@@ -1126,6 +1126,110 @@
                 "y": 160
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Simpan metadatafile,\nstatus tautan, audit log",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Simpan metadatafile,\nstatus tautan, audit log"
+            ],
+            "id": "e6629ed2-8ead-4444-bb36-16d5b21fd194",
+            "source": {
+              "cell": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
+              "port": "86927478-88f6-4077-aab0-c2877de58bdd"
+            },
+            "target": {
+              "cell": "9755cad5-8653-4389-9174-430985fbca76",
+              "port": "2e949974-208c-411c-8745-027230cc3a69"
+            },
+            "vertices": [
+              {
+                "x": 950,
+                "y": -310
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Validasi metadata,\nstatus tautan, log",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Validasi metadata,\nstatus tautan, log"
+            ],
+            "id": "e59400a1-9ae5-4b68-9cf5-3d7f2617584c",
+            "source": {
+              "cell": "9755cad5-8653-4389-9174-430985fbca76",
+              "port": "2e949974-208c-411c-8745-027230cc3a69"
+            },
+            "target": {
+              "cell": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
+              "port": "86927478-88f6-4077-aab0-c2877de58bdd"
+            },
+            "vertices": [
+              {
+                "x": 1020,
+                "y": -220
+              }
+            ]
           }
         ],
         "description": "Diagram Aliran Data (DFD) ini memodelkan arsitektur dan alur pertukaran data pada Aplikasi Web Berbagi Dokumen menggunakan metodologi STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege)."
