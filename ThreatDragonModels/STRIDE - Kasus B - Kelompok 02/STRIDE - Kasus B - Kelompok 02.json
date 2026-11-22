@@ -46,24 +46,48 @@
             ],
             "id": "14ea86fe-207b-4aad-a29c-f2001ed3fa12",
             "source": {
-              "x": 1360,
-              "y": 70
+              "x": 1000,
+              "y": -530
             },
             "target": {
-              "x": 1360,
-              "y": 460
+              "x": 1010,
+              "y": 270
             },
-            "vertices": [
-              {
-                "x": 1360,
-                "y": 180
-              }
-            ]
+            "vertices": []
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": -1,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Public - Backend",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [],
+              "containedElements": []
+            },
+            "labels": [
+              "Public - Backend"
+            ],
+            "id": "2fb46267-b312-4a5d-b84c-92aee0dc68e7",
+            "source": {
+              "x": 540,
+              "y": -530
+            },
+            "target": {
+              "x": 540,
+              "y": 270
+            },
+            "vertices": []
           },
           {
             "position": {
-              "x": 1090,
-              "y": 194
+              "x": 720,
+              "y": -236
             },
             "size": {
               "width": 120,
@@ -182,8 +206,8 @@
           },
           {
             "position": {
-              "x": 640,
-              "y": 40
+              "x": 280,
+              "y": -390
             },
             "size": {
               "width": 112.5,
@@ -299,8 +323,8 @@
           },
           {
             "position": {
-              "x": 1470,
-              "y": 154
+              "x": 1130,
+              "y": -360
             },
             "size": {
               "width": 120,
@@ -423,8 +447,8 @@
           },
           {
             "position": {
-              "x": 1480,
-              "y": 304
+              "x": 1150,
+              "y": -130
             },
             "size": {
               "width": 120,
@@ -547,8 +571,8 @@
           },
           {
             "position": {
-              "x": 640,
-              "y": 254
+              "x": 250,
+              "y": -206
             },
             "size": {
               "width": 112.5,
@@ -664,8 +688,8 @@
           },
           {
             "position": {
-              "x": 640,
-              "y": 490
+              "x": 280,
+              "y": 60
             },
             "size": {
               "width": 112.5,
@@ -780,33 +804,216 @@
             }
           },
           {
-            "shape": "trust-boundary-curve",
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
             "width": 200,
             "height": 100,
-            "zIndex": 11,
+            "zIndex": 10,
             "connector": "smooth",
             "data": {
-              "type": "tm.Boundary",
-              "name": "Public - Backend",
+              "type": "tm.Flow",
+              "name": "Unggah file",
               "description": "",
-              "isTrustBoundary": true,
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
               "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
             },
             "labels": [
-              "Public - Backend"
+              "Unggah file"
             ],
-            "id": "d8e1f5ed-a77b-4f45-ba38-6917de3a5b6c",
+            "id": "0c396558-bbe7-4baf-8982-994324913183",
             "source": {
-              "x": 1720,
-              "y": -120
+              "cell": "e96abe9d-3c29-42fe-8de8-81b8ab837295",
+              "port": "26b74c4c-9412-49c1-8502-f0ac8de98d4b"
             },
             "target": {
-              "x": 1720,
-              "y": 280
+              "cell": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
+              "port": "8e90ddbf-3d0b-42a5-873e-e283bf3a9057"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 600,
+                "y": -340
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Tautan berbagi",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Tautan berbagi"
+            ],
+            "id": "d4db021b-b348-4651-a4fa-b282d7d7be1b",
+            "source": {
+              "x": 390,
+              "y": -360
+            },
+            "target": {
+              "cell": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
+              "port": "8e90ddbf-3d0b-42a5-873e-e283bf3a9057"
+            },
+            "vertices": [
+              {
+                "x": 580,
+                "y": -300
+              },
+              {
+                "x": 600,
+                "y": -290
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Request akses berbagi\ntanpa login",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Request akses berbagi\ntanpa login"
+            ],
+            "id": "9deb9c40-d00e-48c8-9076-e05285a06e46",
+            "source": {
+              "cell": "545dc8cd-c91b-494b-b387-00f7f6ded5b3",
+              "port": "26b74c4c-9412-49c1-8502-f0ac8de98d4b"
+            },
+            "target": {
+              "cell": "33c1f69a-5806-4f4d-a7a3-4a27e7f38dd6",
+              "port": "0fc9a183-d839-444e-95a0-057ceaa850bc"
+            },
+            "vertices": [
+              {
+                "x": 510,
+                "y": -240
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "68639b88-25cd-4c32-a0aa-90bbb2764ca6",
+            "source": {
+              "x": 840,
+              "y": 314
+            },
+            "target": {
+              "x": 940,
+              "y": 414
+            },
+            "vertices": [
+              {
+                "x": 890,
+                "y": 370
+              }
+            ]
           }
         ],
         "description": "Diagram Aliran Data (DFD) ini memodelkan arsitektur dan alur pertukaran data pada Aplikasi Web Berbagi Dokumen menggunakan metodologi STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege)."
