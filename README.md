@@ -27,6 +27,40 @@ Anda dapat meninjau diagram DFD dan daftar analisis ancaman STRIDE pada reposito
 
 ---
 
+## Analisis STRIDE: Alur Internal & Penyimpanan
+
+Analisis ancaman pada proses internal pengunggahan dan pengelolaan dokumen, pemisahan penyimpanan antara Database Metadata dan Object Storage, serta pembatasan hak akses Admin Organisasi. Backend API sebagai komponen pemroses, Database Metadata sebagai penyimpan atribut deskriptif file, dan Object Storage sebagai penyimpan konten fisik dokumen.
+
+### Ringkasan Ancaman
+
+| No | Ancaman | Kategori STRIDE | Elemen DFD | K x D | Skor | Level |
+|----|---------|-----------------|------------|-------|------|-------|
+| 1 | Pemalsuan identitas pemilik dokumen melalui pencurian token sesi | Spoofing | Backend API | 2 x 3 | 6 | Tinggi |
+| 2 | Manipulasi metadata dokumen tanpa otorisasi | Tampering | Database Metadata | 2 x 3 | 6 | Tinggi |
+| 3 | Manipulasi isi dokumen pada Object Storage | Tampering | Object Storage | 2 x 3 | 6 | Tinggi |
+| 4 | Kebocoran isi dokumen akibat kesalahan otorisasi Admin | Information Disclosure | Backend API | 1 x 3 | 3 | Sedang |
+| 5 | Denial of Service melalui unggahan file berlebihan | Denial of Service | Backend API | 3 x 3 | 9 | Tinggi |
+
+### Mitigasi Utama
+
+| No | Mitigasi |
+|----|----------|
+| 1 | Validasi sesi pada setiap endpoint terautentikasi; gunakan cookie HttpOnly, Secure, SameSite, masa aktif sesi terbatas, rotasi token, dan pencabutan sesi. |
+| 2 | Batasi operasi tulis Database Metadata hanya untuk Backend API; validasi kepemilikan dan otorisasi pada setiap perubahan; gunakan parameterized query dan transaksi database. |
+| 3 | Batasi izin Object Storage hanya kepada identitas layanan Backend yang diperlukan; gunakan checksum/hash untuk integritas file dan versioning untuk pemulihan. |
+| 4 | Pisahkan izin melihat metadata dari izin membaca konten file; terapkan RBAC, least privilege, deny-by-default, dan pemeriksaan otorisasi di Backend sebelum mengambil file. |
+| 5 | Tetapkan batas ukuran file dan kuota per pengguna; terapkan rate limiting, pembatasan upload bersamaan, validasi tipe/ukuran file, dan pemantauan kapasitas penyimpanan. |
+
+### Asumsi
+
+- **A2-1:** Pemilik Dokumen menggunakan token sesi untuk mempertahankan status autentikasi
+- **A2-2:** Hak Admin untuk melihat metadata dan Audit Log, tetapi bukan isi file, ditegakkan melalui RBAC dan kebijakan akses Object Storage sesuai asumsi sistem
+- **A2-3:** Batas ukuran file, kuota penyimpanan, tipe file yang diperbolehkan, dan rate limiting untuk upload belum ditetapkan dalam deskripsi kasus.
+- **A2-4:** Backend API menjadi perantara operasi baca/tulis Database Metadata
+- **A2-5:** Hanya Backend API yang seharusnya memegang kredensial akses ke Object Storage, kesalahan konfigurasi izin atau kebocoran kredensial tetap mungkin terjadi.
+
+---
+
 ## Analisis STRIDE: Alur Publik, Tautan & Audit
 
 Bagian ini mencakup ancaman pada alur Penerima Eksternal tanpa login, pembuatan dan pencabutan tautan berbagi 24 jam, pengunduhan lewat Backend API, serta integritas Audit Log. Skor risiko dihitung dengan rubrik latihan: **Kemungkinan (1-3) x Dampak (1-3)**. Skor 1-2 = Rendah, 3-4 = Sedang, 6-9 = Tinggi.
