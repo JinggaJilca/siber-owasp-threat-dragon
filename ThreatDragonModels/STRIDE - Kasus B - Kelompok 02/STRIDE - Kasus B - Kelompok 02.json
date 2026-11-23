@@ -98,8 +98,8 @@
                 "text": "Backend API"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -196,12 +196,60 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9dac6d91-604c-4461-a149-1dd02446e176",
+                  "title": "Penebakan token tautan oleh penerima tidak sah",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Jika penyerang eksternal dapat mencoba token tautan secara masif (brute force atau menebak pola) pada endpoint akses Backend API, maka ia bisa menyamar sebagai penerima sah (tanpa login) dan mengunduh dokumen milik orang lain. Dampak: dokumen bocor ke pihak tidak berwenang, karena token tautan adalah satu-satunya bukti identitas penerima. Skor: Kemungkinan 2 x Dampak 3 = 6 (Tinggi). Asumsi (A3-4): token pendek atau berpola, dan tidak ada rate limiting karena tidak disebut di deskripsi kasus.",
+                  "mitigation": "Buat token tautan dengan CSPRNG minimal 128 bit tanpa pola atau urutan. Terapkan rate limiting dan pemblokiran sementara per IP pada endpoint akses tautan. Kembalikan respons seragam untuk token tidak valid, kedaluwarsa, atau dicabut. Beri peringatan jika ada lonjakan token tidak valid.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "6"
+                },
+                {
+                  "id": "a9879d11-765e-4ca6-a5b2-9984dadf566e",
+                  "title": "Tautan tetap bisa dipakai setelah dicabut atau kedaluwarsa",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Jika validasi status dan masa berlaku tautan 24 jam tidak dicek ulang oleh Backend API pada setiap request (misalnya karena cache, race condition saat pencabutan, atau pre-signed URL yang masih hidup), maka penerima eksternal tanpa login tetap memperoleh akses unduh yang seharusnya sudah hilang. Dampak: aturan bisnis \"pemilik dapat mencabut tautan\" tidak efektif dan akses melebihi hak yang semestinya, terbatas pada file tertentu dan jendela waktu pendek. Skor: Kemungkinan 2 x Dampak 2 = 4 (Sedang). Asumsi (A3-2): masa berlaku dan status pencabutan disimpan di Database Metadata dan diperiksa oleh Backend API.",
+                  "mitigation": "Jadikan Database Metadata sebagai satu-satunya sumber kebenaran dan cek status serta expires_at di server pada setiap request akses dan unduh. Gunakan waktu server UTC. Beri header Cache-Control: no-store pada respons akses. Pastikan pencabutan bersifat transaksional dan langsung berlaku.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "4"
+                },
+                {
+                  "id": "7a5fa89e-babf-497d-9fd9-66536c863fc2",
+                  "title": "Pengunduhan oleh penerima anonim tidak terlacak",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Jika log penggunaan tautan yang ditulis Backend API tidak memuat ID tautan, waktu server, IP, dan hasil (sukses atau gagal), atau kegagalan penulisan log tidak menghentikan unduhan, maka pemilik dan admin tidak dapat membuktikan siapa dan kapan sebuah file diunduh oleh penerima tanpa login. Penerima anonim dapat menyangkal. Dampak: investigasi insiden dan akuntabilitas lemah. Skor: Kemungkinan 2 x Dampak 2 = 4 (Sedang). Asumsi (A3-5): audit log ditulis oleh Backend API ke Database Metadata.",
+                  "mitigation": "Tetapkan field log wajib: ID tautan, ID file, timestamp server, IP, user agent, dan hasil. Catat juga percobaan gagal, pembuatan, dan pencabutan tautan. Tulis log dalam transaksi yang sama dengan pemberian akses (fail-closed: tanpa log, tidak ada unduhan). Sertakan correlation ID pada setiap entri.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "4"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -335,11 +383,13 @@
                 "text": "Database\nMetadata"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -436,13 +486,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "6c35eebb-3224-4790-9155-b6c1f02f1ba0",
+                  "title": "Ancaman STRIDE baru",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Berikan deskripsi untuk ancaman ini",
+                  "mitigation": "Berikan remediasi untuk ancaman ini atau alasan jika status adalah N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 8,
+                  "score": ""
+                }
+              ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -927,7 +998,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -948,13 +1020,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "e0ee3ba0-9ed2-4bcb-9f64-d0a80b918f9b",
+                  "title": "Kebocoran tautan lewat saluran luar dan header Referer",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Jika tautan berbagi 24 jam diteruskan pihak lain atau tercatat di riwayat browser, log proxy, atau header Referer ke situs eksternal, maka orang yang tidak dimaksud dapat membuka tautan tanpa login dan mengunduh file selama masa berlaku tautan. Pengiriman tautan memang di luar lingkup, tetapi akibatnya terjadi pada aliran akses dan unduh. Dampak: kebocoran dokumen tanpa indikasi dari sisi sistem. Skor: Kemungkinan 3 x Dampak 2 = 6 (Tinggi). Asumsi (A3-1): tautan berupa URL berisi token yang diakses lewat HTTPS.",
+                  "mitigation": "Wajibkan HTTPS dengan HSTS. Set header Referrer-Policy: no-referrer. Jangan menulis token utuh di log server atau analytics. Sediakan opsi tambahan berupa PIN/password tautan atau batas jumlah unduhan. Tampilkan riwayat akses tautan kepada pemilik.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "6"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Halaman opsi unduh file"
@@ -1243,7 +1334,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1264,13 +1356,32 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
+              "threats": [
+                {
+                  "id": "527b7508-1b15-43c7-9fed-c3f61d7c576d",
+                  "title": "Manipulasi parameter permintaan untuk mengunduh file lain",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Jika penerima eksternal dapat mengubah parameter seperti ID file atau path pada permintaan unduh, dan Backend API tidak memverifikasi bahwa token hanya berlaku untuk satu file, maka penerima bisa mengambil objek lain dari Object Storage (pola IDOR) melalui alur pengambilan file. Dampak: akses ke file yang tidak pernah dibagikan, melewati batas kepercayaan Backend - Storage. Skor: Kemungkinan 2 x Dampak 3 = 6 (Tinggi). Asumsi (A3-3): hanya Backend API yang memegang kredensial ke Object Storage.",
+                  "mitigation": "Petakan token ke tepat satu file ID di sisi server dan jangan menerima ID file atau path dari klien. Validasi otorisasi pada setiap request unduh. Jangan ekspos URL Object Storage secara publik. Jika memakai pre-signed URL, buat berumur sangat singkat dan terikat ke satu objek.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "6"
+                }
+              ],
+              "trustBoundaryIds": [],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "labels": [
               "Mengambil file"
@@ -1349,6 +1460,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Kharisma Monika Dian Pertiwi, S.Kom., M.Kom.",
-    "threatTop": 0
+    "threatTop": 8
   }
 }
