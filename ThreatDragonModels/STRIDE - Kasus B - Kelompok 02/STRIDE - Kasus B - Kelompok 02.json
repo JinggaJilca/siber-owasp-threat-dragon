@@ -495,18 +495,24 @@
               "threats": [
                 {
                   "id": "6c35eebb-3224-4790-9155-b6c1f02f1ba0",
-                  "title": "Ancaman STRIDE baru",
+                  "title": "Audit log diubah atau dihapus",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Tampering",
-                  "description": "Berikan deskripsi untuk ancaman ini",
-                  "mitigation": "Berikan remediasi untuk ancaman ini atau alasan jika status adalah N/A",
+                  "description": "Jika pihak dengan hak tinggi (admin yang disalahgunakan atau kredensial Backend API yang bocor) dapat mengubah atau menghapus baris audit log di Database Metadata, maka jejak pembuatan, pencabutan, dan penggunaan tautan bisa dihilangkan. Dampak: integritas bukti rusak dan ancaman lain tidak terdeteksi. Skor: Kemungkinan 2 x Dampak 3 = 6 (Tinggi). Asumsi (A3-5): audit log disimpan di database yang sama dengan metadata, sesuai deskripsi kasus.",
+                  "mitigation": "Terapkan tabel log append-only dengan akun Backend API hanya berhak INSERT, tanpa UPDATE atau DELETE. Beri Admin Organisasi hak baca saja. Gunakan hash chaining antar-entri atau salin log ke penyimpanan terpisah (WORM). Pasang alert untuk perubahan atau penghapusan log.",
                   "modelType": "STRIDE",
-                  "new": true,
+                  "new": false,
                   "number": 8,
-                  "score": ""
+                  "score": "6"
                 }
-              ]
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             },
             "tools": {
               "items": [
