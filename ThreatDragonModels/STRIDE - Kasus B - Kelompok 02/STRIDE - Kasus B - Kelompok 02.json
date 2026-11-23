@@ -221,7 +221,7 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Elevation of privilege",
-                  "description": "Jika validasi status dan masa berlaku tautan 24 jam tidak dicek ulang oleh Backend API pada setiap request (misalnya karena cache, race condition saat pencabutan, atau pre-signed URL yang masih hidup), maka penerima eksternal tanpa login tetap memperoleh akses unduh yang seharusnya sudah hilang. Dampak: aturan bisnis \"pemilik dapat mencabut tautan\" tidak efektif dan akses melebihi hak yang semestinya, terbatas pada file tertentu dan jendela waktu pendek. Skor: Kemungkinan 2 x Dampak 2 = 4 (Sedang). Asumsi (A3-2): masa berlaku dan status pencabutan disimpan di Database Metadata dan diperiksa oleh Backend API.",
+                  "description": "Jika validasi status dan masa berlaku tautan 24 jam tidak dicek ulang oleh Backend API pada setiap request (misalnya karena cache, race condition saat pencabutan, maka penerima eksternal tanpa login tetap memperoleh akses unduh yang seharusnya sudah hilang. Dampak: aturan bisnis \"pemilik dapat mencabut tautan\" tidak efektif dan akses melebihi hak yang semestinya, terbatas pada file tertentu dan jendela waktu pendek. Skor: Kemungkinan 2 x Dampak 2 = 4 (Sedang). Asumsi (A3-2): masa berlaku dan status pencabutan disimpan di Database Metadata dan diperiksa oleh Backend API.",
                   "mitigation": "Jadikan Database Metadata sebagai satu-satunya sumber kebenaran dan cek status serta expires_at di server pada setiap request akses dan unduh. Gunakan waktu server UTC. Beri header Cache-Control: no-store pada respons akses. Pastikan pencabutan bersifat transaksional dan langsung berlaku.",
                   "modelType": "STRIDE",
                   "new": false,
@@ -245,11 +245,18 @@
               "threatFrequency": {
                 "spoofing": 1,
                 "tampering": 0,
-                "repudiation": 1,
+                "repudiation": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 1
+                "elevationOfPrivilege": 2
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
